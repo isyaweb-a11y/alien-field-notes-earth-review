@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Alien Field Notes: The Two Day Earth Review.
 
-The entry is a one-line tourist review of Earth, written by an alien
-visitor. A real review needs a verdict (the stars), a specific complaint
-only a tourist would make (the five-minute walk that took forty), and a
-closing remark that lands the joke at the end instead of explaining it.
+One line: an alien tourist's review of Earth. A believable review needs
+a verdict (the stars), one complaint only a tourist would make (the
+five-minute walk that took forty), and a closing line that lands the
+joke instead of explaining it.
 
 Writes the review to /output/entry.txt. Stdlib only, no network.
 """
@@ -22,7 +22,11 @@ MAX_CHARS = 200
 
 
 def entry_text() -> str:
-    """Return the review, checked against the bounty's own rules."""
+    """Return the review, checked against the bounty's own rules.
+
+    The gate is strict about the shape: one line, non-empty, at most
+    200 characters. Anything else is rejected before it is written.
+    """
     text = ENTRY.strip()
     assert text, "the entry must not be empty"
     assert "\n" not in text, "the entry must be a single line"
